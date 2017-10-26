@@ -1,4 +1,7 @@
 #  appveyor.yml
+environment:
+  clone_folder: c:\projects\postgresql\contrib\plr
+  
 install:
   - git clone https://git.postgresql.org/git/postgresql.git c:\projects\src\postgresql
   - cd c:\projects\src\postgresql
