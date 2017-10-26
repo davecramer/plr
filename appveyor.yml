@@ -1,0 +1,29 @@
+#  appveyor.yml
+install:
+  - cinst winflexbison
+  - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
+  
+before_build:
+  - net user testuser Blurfl9426! /add
+  - rename c:\ProgramData\chocolatey\bin\win_flex.exe flex.exe
+  - rename c:\ProgramData\chocolatey\bin\win_bison.exe bison.exe
+  - curl -S -O https://gist.githubusercontent.com/adunstan/7f18e5db33bb2d73f69ff8c9337a4e6c/raw/buildsetup.pl
+  - perl buildsetup.pl
+  
+build:
+  project: pgsql.sln
+  
+configuration:
+  - Release
+  
+test_script:
+  - echo redirect escape ^> foo.bar
+  - echo echo script running > test_script.bat
+  - echo cd %cd%\src\tools\msvc >> test_script.bat
+  - echo SET PATH=%PATH% >> test_script.bat
+  - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> test_script.bat
+  - type test_script.bat
+  - psexec -u testuser -p Blurfl9426!  c:\projects\pgdevel\test_script.bat
+  - type src\tools\msvc\regression.out
+
+  
