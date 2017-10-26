@@ -4,7 +4,7 @@ install:
   - cd c:\projects\src\postgresql
   - git checkout REL_10_0
   - cd ..
-  - xcopy postgresql\ c:\projects\postgresql
+  - xcopy postgresql c:\projects\
   - cd c:\projects\postgresql
   - cinst winflexbison
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
