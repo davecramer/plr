@@ -1,9 +1,11 @@
 #  appveyor.yml
 install:
-  - git clone https://git.postgresql.org/git/postgresql.git
-  - cd postgresql
+  - git clone https://git.postgresql.org/git/postgresql.git c:\projects\src\postgresql
+  - cd c:\projects\src\postgresql
   - git checkout REL_10_0
-  - echo %CD% 
+  - cd ..
+  - xcopy postgresql\ c:\projects\postgresql
+  - cd c:\projects\postgresql
   - cinst winflexbison
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
   
