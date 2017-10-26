@@ -12,15 +12,15 @@ before_script:
   - sudo apt-get install -qq r-base-dev
   - sudo /etc/init.d/postgresql stop
   - sudo apt-get remove postgresql 
-  - sudo apt-get install postgresql-9.5 
-  - sudo apt-get install postgresql-server-dev-9.5
+  - sudo apt-get install postgresql-9.6 
+  - sudo apt-get install postgresql-server-dev-9.6
 
 script:
   - sudo pg_lsclusters
   - export USE_PGXS=1
   - make 
   - sudo  make install
-  - /usr/lib/postgresql/9.5/bin/pg_config
+  - /usr/lib/postgresql/9.6/bin/pg_config
   - psql --version 
-  - /usr/lib/postgresql/9.5/lib/pgxs/src/makefiles/../../src/test/regress/pg_regress --inputdir=./ --bindir='/usr/lib/postgresql/9.5/bin/' --dbname=contrib_regression plr
+  - /usr/lib/postgresql/9.6/lib/pgxs/src/makefiles/../../src/test/regress/pg_regress --inputdir=./ --bindir='/usr/lib/postgresql/9.6/bin/' --dbname=contrib_regression plr
 
