@@ -1,7 +1,7 @@
 #  appveyor.yml
 install:
   - git clone https://git.postgresql.org/git/postgresql.git
-  - cd postgresql.git
+  - cd postgresql
   - git checkout REL_10_0 
   - cd ..
   - cinst winflexbison
