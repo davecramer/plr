@@ -3,6 +3,8 @@
 clone_folder: c:\projects\postgresql\contrib\plr
   
 install:
+  - appveyor downloadfile https://cran.rstudio.com/bin/windows/base/R-3.4.2-win.exe 
+  - R-3.4.2-win.exe /silent
   - git clone https://git.postgresql.org/git/postgresql.git c:\projects\src\postgresql
   - cd c:\projects\src\postgresql
   - git checkout REL_10_0
@@ -17,8 +19,7 @@ before_build:
   - rename c:\ProgramData\chocolatey\bin\win_flex.exe flex.exe
   - rename c:\ProgramData\chocolatey\bin\win_bison.exe bison.exe
   - cd c:\projects\src\postgresql
-  - curl -S -O https://github.com/davecramer/plr/raw/appveyor/buildsetup.pl 
-  - perl buildsetup.pl
+  - perl c:\projects\postgresql\contrib\plr\buildsetup.pl
   
 build:
   project: pgsql.sln
