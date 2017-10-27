@@ -22,7 +22,7 @@ before_build:
   - perl c:\projects\postgresql\contrib\plr\buildsetup.pl
   
 build:
-  project: pgsql.sln
+  project: c:\projects\src\postgresql\pgsql.sln
   
 configuration:
   - Release
