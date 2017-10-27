@@ -29,12 +29,12 @@ configuration:
   
 test_script:
   - echo redirect escape ^> foo.bar
-  - echo echo script running > test_script.bat
-  - echo cd %cd%\src\tools\msvc >> test_script.bat
-  - echo SET PATH=%PATH% >> test_script.bat
-  - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> test_script.bat
-  - type test_script.bat
-  - psexec -u testuser -p Blurfl9426!  c:\projects\pgdevel\test_script.bat
+  - echo echo script running > c:\projects\postgresql\test_script.bat
+  - echo cd %cd%\src\tools\msvc >> c:\projects\postgresql\test_script.bat
+  - echo SET PATH=%PATH% >> c:\projects\postgresql\test_script.bat
+  - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> c:\projects\postgresql\test_script.bat
+  - type c:\projects\postgresql\test_script.bat
+  - psexec -u testuser -p Blurfl9426!  c:\projects\postgresql\test_script.bat
   - type src\tools\msvc\regression.out
 
   
