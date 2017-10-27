@@ -16,7 +16,8 @@ before_build:
   - net user testuser Blurfl9426! /add
   - rename c:\ProgramData\chocolatey\bin\win_flex.exe flex.exe
   - rename c:\ProgramData\chocolatey\bin\win_bison.exe bison.exe
-  - curl -S -O https://gist.githubusercontent.com/adunstan/7f18e5db33bb2d73f69ff8c9337a4e6c/raw/buildsetup.pl
+  - cd c:\projects\src\postgresql
+  - curl -S -O https://github.com/davecramer/plr/raw/appveyor/buildsetup.pl 
   - perl buildsetup.pl
   
 build:
