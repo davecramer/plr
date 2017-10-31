@@ -7,7 +7,7 @@ init:
   
 install:
   - appveyor downloadfile https://cran.rstudio.com/bin/windows/base/R-3.4.2-win.exe 
-  - R-3.4.2-win.exe /silent
+  - R-3.4.2-win.exe /VERYSILENT /dir=C:\R-3.4.2
   - git clone https://git.postgresql.org/git/postgresql.git c:\projects\src\postgresql
   - cd c:\projects\src\postgresql
   - git checkout REL_10_0
