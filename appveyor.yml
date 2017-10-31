@@ -1,6 +1,5 @@
 #  appveyor.yml
 
-clone_folder: c:\projects\postgresql\contrib\plr
 
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -8,12 +7,10 @@ init:
 install:
   - appveyor downloadfile https://cran.rstudio.com/bin/windows/base/R-3.4.2-win.exe 
   - R-3.4.2-win.exe /VERYSILENT /dir=C:\R-3.4.2
-  - git clone https://git.postgresql.org/git/postgresql.git c:\projects\src\postgresql
-  - cd c:\projects\src\postgresql
-  - git checkout REL_10_0
-  - cd ..
-  - xcopy postgresql c:\projects\
+  - git clone https://git.postgresql.org/git/postgresql.git c:\projects\postgresql
   - cd c:\projects\postgresql
+  - git checkout REL_10_0
+  - mv c:\projects\plr contrib
   - cinst winflexbison
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
   
@@ -21,11 +18,11 @@ before_build:
   - net user testuser Blurfl9426! /add
   - rename c:\ProgramData\chocolatey\bin\win_flex.exe flex.exe
   - rename c:\ProgramData\chocolatey\bin\win_bison.exe bison.exe
-  - cd c:\projects\src\postgresql
+  - cd c:\projects\postgresql
   - perl c:\projects\postgresql\contrib\plr\buildsetup.pl
   
 build:
-  project: c:\projects\src\postgresql\pgsql.sln
+  project: c:\projects\postgresql\pgsql.sln
   
 configuration:
   - Release
