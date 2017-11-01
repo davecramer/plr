@@ -20,11 +20,11 @@ before_build:
   - rename c:\ProgramData\chocolatey\bin\win_bison.exe bison.exe
   - cd c:\projects\postgresql
   - perl c:\projects\postgresql\contrib\plr\buildsetup.pl
-  - dumpbin /EXPORTS C:\R-3.4.2\bin\x64\R.dll > R.symbols
-  - awk 'NR > 19 { print }' < R.symbols  | tr -s ' ' |cut -d ' ' -f 5 > R.stripped
-  - cat header.def R.stripped > R.def
-  - lib /def:R.def /out:R.lib
-  - cp R.lib C:\R-3.4.2\bin\x64\
+  - dumpbin /EXPORTS C:\R-3.4.2\bin\x64\R.dll > c:\projects\plr\R.symbols
+  - awk 'NR > 19 { print }' < c:\projects\plr\R.symbols  | tr -s ' ' |cut -d ' ' -f 5 > c:\projects\plr\R.stripped
+  - cat c:\projects\plr\header.def c:\projects\plr\R.stripped > c:\projects\plr\R.def
+  - lib /def:c:\projects\plr\R.def /out:C:\R-3.4.2\bin\x64\R.lib
+
 build:
   project: c:\projects\postgresql\pgsql.sln
   
