@@ -22,7 +22,7 @@ before_build:
   - perl c:\projects\postgresql\contrib\plr\buildsetup.pl
   - dumpbin /EXPORTS C:\R-3.4.2\bin\x64\R.dll > c:\projects\postgresql\contrib\plr\R.symbols
   - awk 'NR > 19 { print }' < c:\projects\postgresql\contrib\plr\R.symbols  | tr -s ' ' |cut -d ' ' -f 5 > c:\projects\postgresql\contrib\plr\R.stripped
-  - cat c:\projects\plr\header.def c:\projects\plr\R.stripped > c:\projects\plr\R.def
+  - cat c:\projects\postgresql\contrib\plr\header.def c:\projects\postgresql\contrib\plr\R.stripped > c:\projects\postgresql\contrib\plr\R.def
   - lib /def:c:\projects\postgresql\contrib\plr\R.def /out:C:\R-3.4.2\bin\x64\R.lib
 
 build:
