@@ -28,8 +28,8 @@ before_build:
   - SET PATH=%PATH%;C:\R-3.4.2\bin\x64\
   - patch -p1 < src\pl\plr\msvc.diff
 
-build:
-  project: c:\projects\postgresql\pgsql.sln
+build_script:
+  project: c:\projects\postgresql\src\tools\msvc\build.bat
   
 configuration:
   - Release
