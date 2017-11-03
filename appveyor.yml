@@ -29,7 +29,8 @@ before_build:
   - patch -p1 < src\pl\plr\msvc.diff
 
 build_script:
-  - c:\projects\postgresql\src\tools\msvc\build.bat
+  - cd c:\projects\postgresql\src\tools\msvc
+  - build.bat
   
 configuration:
   - Release
