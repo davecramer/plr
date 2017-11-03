@@ -42,7 +42,6 @@ test_script:
   - echo SET PATH=%PATH% >> c:\projects\postgresql\test_script.bat
   - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> c:\projects\postgresql\test_script.bat
   - type c:\projects\postgresql\test_script.bat
-  - psexec -u testuser -p Blurfl9426!  c:\projects\postgresql\test_script.bat
   - type src\tools\msvc\regression.out
 
   
