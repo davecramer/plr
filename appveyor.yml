@@ -22,7 +22,7 @@ before_build:
   - cd c:\projects\postgresql
   - perl c:\projects\postgresql\src\pl\plr\buildsetup.pl
   - dumpbin /EXPORTS C:\R-3.4.2\bin\x64\R.dll > c:\projects\postgresql\src\pl\plr\R.symbols
-  - awk 'NR > 19 { print }' < c:\projects\postgresql\src\pl\plr\R.symbols  | tr -s ' ' |cut -d ' ' -f 5 > c:\projects\postgresql\src\pl\plr\R.stripped
+  - tail -n +19 c:\projects\postgresql\src\pl\plr\R.symbols  | tr -s ' ' |cut -d ' ' -f 5 > c:\projects\postgresql\src\pl\plr\R.stripped
   - cat c:\projects\postgresql\src\pl\plr\header.def c:\projects\postgresql\src\pl\plr\R.stripped > c:\projects\postgresql\src\pl\plr\R.def
   - lib /def:c:\projects\postgresql\src\pl\plr\R.def /out:C:\R-3.4.2\bin\x64\R.lib
   - SET PATH=%PATH%;C:\R-3.4.2\bin\x64\
