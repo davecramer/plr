@@ -43,7 +43,7 @@ test_script:
   - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> c:\projects\postgresql\test_script.bat
   - type c:\projects\postgresql\test_script.bat
   - type src\tools\msvc\regression.out
-
+  - c:\projects\postgresql\test_script.bat
   
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
