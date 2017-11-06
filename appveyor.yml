@@ -38,7 +38,6 @@ configuration:
 test_script:
   - echo redirect escape ^> foo.bar
   - echo echo script running > c:\projects\postgresql\test_script.bat
-  - echo cd %cd%\src\tools\msvc >> c:\projects\postgresql\test_script.bat
   - echo SET PATH=%PATH% >> c:\projects\postgresql\test_script.bat
   - perl -e "print q{.\vcregress check > regression.out}, qq{\n};" >> c:\projects\postgresql\test_script.bat
   - type c:\projects\postgresql\test_script.bat
