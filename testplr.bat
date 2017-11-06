@@ -1,7 +1,7 @@
 SET R_HOME=C:\R-3.2.4
 SET PATH=%PATH%;C:\R-3.2.4\bin\x64
 cd c:\projects\postgresql\src\tools\msvc
-perl install c:\pgsql
+perl install.pl c:\pgsql
 pushd c:\pgsql
 bin\initdb -D data
 bin\pg_ctl -D data -l logfile start
