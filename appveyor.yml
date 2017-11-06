@@ -36,6 +36,8 @@ configuration:
   - Release
   
 test_script:
+  - SET R_HOME=C:\R-3.2.4
+  - SET PATH=%PATH%;C:\R-3.2.4\bin\x64
   - cd c:\projects\postgresql\src\pl\plr	
   - testplr.bat
   
