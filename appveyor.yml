@@ -36,6 +36,7 @@ configuration:
   - Release
   
 test_script:
+  - cd c:\projects\postgresql\src\tools\msvc	
   - testplr.bat
   
 on_finish:
