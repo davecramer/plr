@@ -8,8 +8,6 @@ pushd c:\projects\postgresql\src\pl\plr
 cp plr.control c:\pgsql\share\extension
 cp plr--8.3.0.17.sql c:\pgsql\share\extension
 popd
-echo 'before vcregress'
 perl vcregress.pl plcheck > regression.out
-echo 'after vcregress'
 type regression.out
-echo 'last line'
+
