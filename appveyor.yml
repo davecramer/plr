@@ -42,7 +42,7 @@ test_script:
   - perl install.pl c:\pgsql
   - pushd c:\pgsql
   - bin\initdb -D data
-  - bin\pg_ctl -D data -l logfile start
+  - ps Start-Process -FilePath .\bin\pg_ctl -D data -l logfile start
   - popd
   - cd c:\projects\postgresql\src\pl\plr
   - cp plr.control c:\pgsql\share\extension
