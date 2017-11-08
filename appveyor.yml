@@ -40,10 +40,9 @@ test_script:
   - SET PATH=%PATH%;C:\R-3.2.4\bin\x64
   - cd c:\projects\postgresql\src\tools\msvc
   - perl install.pl c:\pgsql
-  - pushd c:\pgsql
+  - cd c:\pgsql
   - bin\initdb -D data
   - ps: Start-Process -FilePath .\bin\pg_ctl -ArgumentList "-D data -l logfile start"
-  - popd
   - cd c:\projects\postgresql\src\pl\plr
   - cp plr.control c:\pgsql\share\extension
   - cp plr--8.3.0.17.sql c:\pgsql\share\extension
