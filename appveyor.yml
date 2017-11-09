@@ -60,5 +60,5 @@ deploy:
       appveyor_repo_tag: true
          
 artifacts:
-  - path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
+  - path: '..\postgresql\src\pl\plr\plr.dll'
     name: plr.dll
