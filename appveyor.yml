@@ -46,6 +46,8 @@ test_script:
   - cd c:\projects\postgresql\src\pl\plr
   - cp plr.control c:\pgsql\share\extension
   - cp plr--8.3.0.17.sql c:\pgsql\share\extension
+  - mkdir c:\projects\plr
+  - cp plr.dll c:\projects\plr\
   - ps: Start-Process -FilePath ..\..\..\Release\pg_regress\pg_regress -ArgumentList "--bindir=c:\pgsql\bin --dbname=pl_regression plr"
         
 deploy:
@@ -60,5 +62,5 @@ deploy:
       appveyor_repo_tag: true
          
 artifacts:
-  - path: '..\postgresql\src\pl\plr\plr.dll'
+  - path: '.\plr.dll'
     name: plr.dll
