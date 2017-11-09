@@ -48,3 +48,16 @@ test_script:
   - cp plr--8.3.0.17.sql c:\pgsql\share\extension
   - ps: Start-Process -FilePath ..\..\..\Release\pg_regress\pg_regress -ArgumentList "--bindir=c:\pgsql\bin --dbname=pl_regression plr"
         
+deploy:
+  - provider: GitHub
+  - release: $(apveyor_repo_tag_name)
+  - artifact: plr.dll
+  - auth_token:
+	  secure: v+5LgZlgiwCjr45eTclZ2s7YJIvRi+DeRPQO0HWbkCKj8iIjlXEDw27P3jkMrqiD
+  - on:
+	  appveyor_repo_tag: true
+	  
+artifacts:
+	- path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
+	  name: plr.dll
+	  
