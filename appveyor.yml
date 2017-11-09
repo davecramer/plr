@@ -53,11 +53,11 @@ deploy:
   - release: $(apveyor_repo_tag_name)
   - artifact: plr.dll
   - auth_token:
-	  secure: v+5LgZlgiwCjr45eTclZ2s7YJIvRi+DeRPQO0HWbkCKj8iIjlXEDw27P3jkMrqiD
+       secure: v+5LgZlgiwCjr45eTclZ2s7YJIvRi+DeRPQO0HWbkCKj8iIjlXEDw27P3jkMrqiD
   - on:
-	  appveyor_repo_tag: true
+      appveyor_repo_tag: true
 	  
 artifacts:
-	- path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
-	  name: plr.dll
+  - path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
+      name: plr.dll
 	  
