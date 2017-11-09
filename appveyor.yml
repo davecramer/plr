@@ -59,4 +59,4 @@ deploy:
          
 artifacts:
   - path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
-      name: plr.dll
+    name: plr.dll
