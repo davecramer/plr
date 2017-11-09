@@ -56,7 +56,7 @@ deploy:
        secure: v+5LgZlgiwCjr45eTclZ2s7YJIvRi+DeRPQO0HWbkCKj8iIjlXEDw27P3jkMrqiD
   - on:
       appveyor_repo_tag: true
-	  
+	    
 artifacts:
   - path: 'c:\projects\postgresql\src\pl\plr\plr.dll'
       name: plr.dll
