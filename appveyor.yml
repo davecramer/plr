@@ -49,12 +49,14 @@ test_script:
   - ps: Start-Process -FilePath ..\..\..\Release\pg_regress\pg_regress -ArgumentList "--bindir=c:\pgsql\bin --dbname=pl_regression plr"
         
 deploy:
-  - provider: GitHub
-  - release: $(apveyor_repo_tag_name)
-  - artifact: plr.dll
-  - auth_token:
+   provider: GitHub
+   release: $(appveyor_repo_tag_name)
+   artifact: plr.dll
+   draft: false
+   prerelease: false
+   auth_token:
       secure: v+5LgZlgiwCjr45eTclZ2s7YJIvRi+DeRPQO0HWbkCKj8iIjlXEDw27P3jkMrqiD
-  - on:
+   on:
       appveyor_repo_tag: true
          
 artifacts:
